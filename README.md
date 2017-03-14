@@ -6,7 +6,7 @@ Tip is a tip calculator application for iOS.
 
 Submitted by: Rachana Wankhade
 
-Time spent: 4 hrs
+Time spent: 14 hrs
 
 ## User Stories
 1.User goes on the tip calc screen
@@ -20,11 +20,14 @@ The following **required** functionality is complete:
 * [ ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 * [ ] Settings page to change the default tip percentage.
 
-GIF created with [LiceCap](file:///Users/rwankhade/Desktop/TiCal1.gif)
+In addition to this, I implemented these user stories:
+* [ ] Remember the bill amount across app restarts. After an extended period of time, clear the state. This is a UI trick that Apple uses with the Spotlight app. If you return there a minute later, it will show your most recent search. if you return 10 minutes later, it defaults to blank. To implement this, plug into the application lifecycle and track time using NSDate.
+* [ ] Use locale specific currency and currency thousands separator.
+* [ ] Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
+* [ ] Make sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [ ] Add animations to your UI
 
-## Notes
-
-Code is working fine on the devices such as iPhone6, iPhone 6s plus, iPhone 7 etc.I am seeing alignment is not working properly on iPhone 5S. Will do that as part of improvement
+GIF created with [LiceCap](http://i.imgur.com/Sqwjv8e.gifv)
 
 ## License
 
