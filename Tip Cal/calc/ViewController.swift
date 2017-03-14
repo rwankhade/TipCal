@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let appTintColor = UIColor(red: 0.0, green: 1.0, blue: 0.8, alpha: 1.0)
     
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.tintColor = appTintColor
         print("view will appear")
+        self.fadeIn()
         self.fectchUserDefault()
     }
     
@@ -45,19 +48,31 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("view did disappear")
+        self.fadeOut()
     }
-
+    func fadeIn(duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 1.0
+            
+        })
+    }
+    func fadeOut(duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 0.0
+            
+        })
+    }
     func fectchUserDefault() {
         let defaults = UserDefaults.standard
         let defaultTipIndex = defaults.integer(forKey: "tip_percentage_index")
         tipControl.selectedSegmentIndex = defaultTipIndex
         self.calculateTip(defaultTipIndex as AnyObject)
     }
-
+    
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
-
+    
     
     @IBAction func calculateTip(_ sender: AnyObject) {
         let tipPercentages = [0.18, 0.2, 0.25]

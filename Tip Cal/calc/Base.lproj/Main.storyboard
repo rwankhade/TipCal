@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VPT-T1-DAq">
-                                <rect key="frame" x="28" y="101" width="23" height="21"/>
+                                <rect key="frame" x="28" y="101" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -64,7 +64,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="bev-0X-BfI">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="bev-0X-BfI" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="16" y="382" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -98,6 +98,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="7LH-X4-3wi" appends="YES" id="Yjg-Gf-nrg"/>
+                            <outletCollection property="gestureRecognizers" destination="4mY-hU-NGt" appends="YES" id="o5l-ru-DjN"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="V3M-bZ-agW">
@@ -120,6 +121,7 @@
                         <action selector="onTap:" destination="BYZ-38-t0r" id="mAQ-cy-rqx"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="4mY-hU-NGt"/>
             </objects>
             <point key="canvasLocation" x="518.5" y="123.5"/>
         </scene>
