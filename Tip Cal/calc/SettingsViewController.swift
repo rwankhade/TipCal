@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
+    
+    var darkMode: Bool = false
+    var selectedTipIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,28 +31,31 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func fectchUserDefault() {
         let defaults = UserDefaults.standard
         let defaultTipIndex = defaults.integer(forKey: "tip_percentage_index")
         tipControl.selectedSegmentIndex = defaultTipIndex
+        
+        let darkMode = defaults.bool(forKey: "dark_theme")
+        darkThemeSwitch.setOn(darkMode, animated: true)
     }
 
 
     @IBAction func settingDefaultPercentage(_ sender: Any) {
-        let selecetedTipIndex = tipControl.selectedSegmentIndex
+        self.selectedTipIndex = self.tipControl.selectedSegmentIndex
+        self.setDefaultSetting()
+    }
+    
+    @IBAction func themeSwitchValueChange(_ sender: Any) {
+        self.darkMode = self.darkThemeSwitch.isOn
+        self.setDefaultSetting()
+    }
+    
+    func setDefaultSetting() {
         let defaults = UserDefaults.standard
-        defaults.set(selecetedTipIndex, forKey: "tip_percentage_index")
+        defaults.set(self.selectedTipIndex, forKey: "tip_percentage_index")
+        defaults.set(self.darkMode, forKey: "dark_theme")
         defaults.synchronize()
     }
+    
 }
